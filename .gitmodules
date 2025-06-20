@@ -1,0 +1,3 @@
+[submodule "libs/KBL_F1C100s"]
+	path = libs/KBL_F1C100s
+	url = https://github.com/ssDhp/KBL_F1C100s.git

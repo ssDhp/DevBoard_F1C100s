@@ -1,4 +1,4 @@
-25597575686752128
+25604577692414643
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -50722,27 +50722,6 @@ conn samtec ultra-mirco-power terminal
 7
 7
 Connector_Samtec_MicroPower
-Samtec_UMPT-08-XX.X-X-V-S-W_1x08-1MP_P2.0mm_Terminal_WeldTab
-2.00 mm mPOWER Ultra Micro Power Terminal, Vertical (source: https://suddendocs.samtec.com/prints/umpt-xx-xx.x-xx-v-x-x-x-x-xr-footprint.pdf)
-conn samtec ultra-mirco-power terminal
-0
-16
-9
-Connector_Samtec_MicroPower
-Samtec_UMPT-08-XX.X-X-V-S_1x08_P2.0mm_Terminal
-2.00 mm mPOWER Ultra Micro Power Terminal, Vertical (source: https://suddendocs.samtec.com/prints/umpt-xx-xx.x-xx-v-x-x-x-x-xr-footprint.pdf)
-conn samtec ultra-mirco-power terminal
-0
-8
-8
-Connector_Samtec_MicroPower
-Samtec_UMPT-09-XX.X-X-V-S-W_1x09-1MP_P2.0mm_Terminal_WeldTab
-2.00 mm mPOWER Ultra Micro Power Terminal, Vertical (source: https://suddendocs.samtec.com/prints/umpt-xx-xx.x-xx-v-x-x-x-x-xr-footprint.pdf)
-conn samtec ultra-mirco-power terminal
-0
-17
-10
-Connector_Samtec_MicroPower
 Samtec_UMPT-09-XX.X-X-V-S_1x09_P2.0mm_Terminal
 2.00 mm mPOWER Ultra Micro Power Terminal, Vertical (source: https://suddendocs.samtec.com/prints/umpt-xx-xx.x-xx-v-x-x-x-x-xr-footprint.pdf)
 conn samtec ultra-mirco-power terminal
@@ -95843,6 +95822,27 @@ Logo WEEE
 0
 0
 0
+TPS562201DDCT
+DDC0006A_L
+
+TPS562201DDCT 
+0
+6
+6
+TPS562201DDCT
+DDC0006A_M
+
+TPS562201DDCT 
+0
+6
+6
+TPS562201DDCT
+DDC0006A_N
+
+TPS562201DDCT 
+0
+6
+6
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
@@ -102647,3 +102647,10 @@ Varistor VF
 0
 2
 2
+sd_card
+sd_card_10p
+
+
+0
+12
+10

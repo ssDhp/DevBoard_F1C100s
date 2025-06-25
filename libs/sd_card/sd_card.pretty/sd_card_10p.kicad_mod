@@ -66,28 +66,6 @@
 		(layer "Dwgs.User")
 		(uuid "cd7b41d5-f72e-4d60-adbb-e29a4e45f77b")
 	)
-	(fp_circle
-		(center 2.615 -12.3)
-		(end 3.465 -12.3)
-		(stroke
-			(width 0.1)
-			(type solid)
-		)
-		(fill no)
-		(layer "Edge.Cuts")
-		(uuid "346a2097-f68d-4c77-83f4-cca4a808e374")
-	)
-	(fp_circle
-		(center 2.615 -2.3)
-		(end 3.465 -2.3)
-		(stroke
-			(width 0.1)
-			(type solid)
-		)
-		(fill no)
-		(layer "Edge.Cuts")
-		(uuid "3d849830-3943-4dc0-af6f-1f45fc4c6ace")
-	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(unlocked yes)
@@ -99,6 +77,20 @@
 				(thickness 0.15)
 			)
 		)
+	)
+	(pad "" np_thru_hole circle
+		(at 2.615 -12.3)
+		(size 1.7 1.7)
+		(drill 1.7)
+		(layers "F&B.Cu" "*.Mask")
+		(uuid "e845af88-6308-4286-bb35-abbde8f6210f")
+	)
+	(pad "" np_thru_hole circle
+		(at 2.615 -2.3)
+		(size 1.7 1.7)
+		(drill 1.7)
+		(layers "F&B.Cu" "*.Mask")
+		(uuid "66102dd5-8809-48b9-a938-9b3b1c7773f3")
 	)
 	(pad "" smd roundrect
 		(at 7.515 -14.3)

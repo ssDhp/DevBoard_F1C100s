@@ -1,6 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "F1C100s")(type "KiCad")(uri "${KIPRJMOD}/libs/KBL_F1C100s/F1C100s.pretty")(options "")(descr ""))
-  (lib (name "TPS562201DDCT")(type "KiCad")(uri "${KIPRJMOD}/libs/TPS562201DDCT/TPS562201DDCT.pretty")(options "")(descr ""))
-  (lib (name "sd_card")(type "KiCad")(uri "${KIPRJMOD}/libs/sd_card/sd_card.pretty")(options "")(descr ""))
-)

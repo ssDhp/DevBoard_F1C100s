@@ -136,26 +136,8 @@
 					)
 				)
 			)
-			(pin power_in line
-				(at -3.81 19.05 0)
-				(length 3.81)
-				(name "VDD"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
 			(pin input line
-				(at -3.81 16.51 0)
+				(at -3.81 19.05 0)
 				(length 3.81)
 				(name "CLK"
 					(effects
@@ -172,26 +154,8 @@
 					)
 				)
 			)
-			(pin power_in line
-				(at -3.81 13.97 0)
-				(length 3.81)
-				(name "VSS"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
 			(pin bidirectional line
-				(at -3.81 11.43 0)
+				(at -3.81 16.51 0)
 				(length 3.81)
 				(name "DAT0"
 					(effects
@@ -209,7 +173,7 @@
 				)
 			)
 			(pin bidirectional line
-				(at -3.81 8.89 0)
+				(at -3.81 13.97 0)
 				(length 3.81)
 				(name "DAT1"
 					(effects
@@ -219,6 +183,42 @@
 					)
 				)
 				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -3.81 10.16 0)
+				(length 3.81)
+				(name "VDD"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -3.81 7.62 0)
+				(length 3.81)
+				(name "VSS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
 					(effects
 						(font
 							(size 1.27 1.27)

@@ -1,9 +1,9 @@
-[submodule "libs/KBL_F1C100s"]
-	path = libs/KBL_F1C100s
+[submodule "DevBoard_F1C100s_Rev1/libs/KBL_F1C100s"]
+	path = DevBoard_F1C100s_Rev1/libs/KBL_F1C100s
 	url = https://github.com/ssDhp/KBL_F1C100s.git
 [submodule "DevBoard_F1C100s_Rev2/libs/KBL_F1C100s"]
 	path = DevBoard_F1C100s_Rev2/libs/KBL_F1C100s
 	url = https://github.com/ssDhp/KBL_F1C100s.git
-[submodule "DevBoard_F1C100s_Rev2/libs/KBL_LCD_RGB_FPC_socket"]
-	path = DevBoard_F1C100s_Rev2/libs/KBL_LCD_RGB_FPC_socket
-	url = https://github.com/ssDhp/KBL_LCD_RGB_FPC_socket.git
+[submodule "DevBoard_F1C100s_Rev2/libs/KBL_LCD_RGB_FPC"]
+	path = DevBoard_F1C100s_Rev2/libs/KBL_LCD_RGB_FPC
+	url = https://github.com/ssDhp/KBL_LCD_RGB_FPC.git

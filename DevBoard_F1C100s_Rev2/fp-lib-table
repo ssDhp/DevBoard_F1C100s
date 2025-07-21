@@ -3,4 +3,6 @@
   (lib (name "F1C100s")(type "KiCad")(uri "${KIPRJMOD}/libs/KBL_F1C100s/F1C100s.pretty")(options "")(descr ""))
   (lib (name "sd_card")(type "KiCad")(uri "${KIPRJMOD}/libs/sd_card/sd_card.pretty")(options "")(descr ""))
   (lib (name "TPS562201DDCT")(type "KiCad")(uri "${KIPRJMOD}/libs/TPS562201DDCT/TPS562201DDCT.pretty")(options "")(descr ""))
+  (lib (name "AP3031KTR_G1")(type "KiCad")(uri "${KIPRJMOD}/libs/AP3031KTR_G1/AP3031KTR_G1.pretty")(options "")(descr ""))
+  (lib (name "lcd_rgb_fpc")(type "KiCad")(uri "${KIPRJMOD}/libs/KBL_LCD_RGB_FPC/lcd_rgb_fpc.pretty")(options "")(descr ""))
 )

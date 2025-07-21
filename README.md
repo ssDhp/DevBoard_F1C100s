@@ -1,12 +1,9 @@
-# DevBoard_F1C100s
+# DevBoard_F1C100s Rev2
 F1C100s based Linux development board
 
 ## Schematic
-![Schematic](./images/schematic.png)
+![Schematic](./images/schematic_rev2.png)
 
 ## Layout
-2 Layers 75x50 mm
-![Layout](./images/layout.png)
 
 ## Render
-![Render](./images/render.png)

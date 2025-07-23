@@ -5316,6 +5316,16 @@
 		)
 		(uuid "97e04854-35d7-4184-98d1-a39bf5e66069")
 	)
+	(label "VBUS"
+		(at 60.96 35.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ac8cadbb-fa9d-4579-b2de-58cdab51fd2c")
+	)
 	(global_label "5V"
 		(shape output)
 		(at 143.51 35.56 90)

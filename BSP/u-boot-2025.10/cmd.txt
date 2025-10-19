@@ -1,0 +1,11 @@
+## Requirement
+
+
+## Build
+export CROSS_COMPILE=arm-linux-gnueabihf-
+make lctech_pi_f1c200s_defconfig
+make -j$(nproc)
+
+
+## Booting U-Boot over USB
+sunxi-fel uboot u-boot-sunxi-with-spl.bin

@@ -1,0 +1,52 @@
+
+U-Boot SPL 2025.10 (Oct 19 2025 - 22:12:01 +0530)
+DRAM: 64 MiB
+Unknown boot source from BROM: 0xffffffff
+Trying to boot from FEL
+
+
+U-Boot 2025.10 (Oct 19 2025 - 22:12:01 +0530) Allwinner Technology
+
+CPU:   Allwinner F Series (SUNIV)
+Model: Lctech Pi F1C200s
+DRAM:  64 MiB
+Core:  30 devices, 17 uclasses, devicetree: separate
+WDT:   Not starting watchdog@1c20ca0
+MMC:   mmc@1c0f000: 0
+Loading Environment from FAT... Card did not respond to voltage select! : -110
+** Bad device specification mmc 0 **
+In:    serial@1c25400
+Out:   serial@1c25400
+Err:   serial@1c25400
+Net:   No ethernet found.
+Hit any key to stop autoboot:  2 Hit any key to stop autoboot: 1Hit any key to stop autoboot: 0
+No ethernet found.
+missing environment variable: pxeuuid
+Retrieving file: pxelinux.cfg/00000000
+No ethernet found.
+Retrieving file: pxelinux.cfg/0000000
+No ethernet found.
+Retrieving file: pxelinux.cfg/000000
+No ethernet found.
+Retrieving file: pxelinux.cfg/00000
+No ethernet found.
+Retrieving file: pxelinux.cfg/0000
+No ethernet found.
+Retrieving file: pxelinux.cfg/000
+No ethernet found.
+Retrieving file: pxelinux.cfg/00
+No ethernet found.
+Retrieving file: pxelinux.cfg/0
+No ethernet found.
+Retrieving file: pxelinux.cfg/default-arm-sunxi-sunxi
+No ethernet found.
+Retrieving file: pxelinux.cfg/default-arm-sunxi
+No ethernet found.
+Retrieving file: pxelinux.cfg/default-arm
+No ethernet found.
+Retrieving file: pxelinux.cfg/default
+No ethernet found.
+Config file not found
+No ethernet found.
+=> reset
+resetting ...

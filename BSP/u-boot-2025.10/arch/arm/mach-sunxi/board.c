@@ -29,7 +29,8 @@
 
 #include <linux/compiler.h>
 
-struct fel_stash {
+struct fel_stash
+{
 	uint32_t sp;
 	uint32_t lr;
 	uint32_t cpsr;
@@ -46,25 +47,22 @@ struct fel_stash fel_stash __section(".data");
 #include <asm/armv8/mmu.h>
 
 static struct mm_region sunxi_mem_map[] = {
+	{/* SRAM, MMIO regions */
+	 .virt = 0x0UL,
+	 .phys = 0x0UL,
+	 .size = 0x40000000UL,
+	 .attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
+			  PTE_BLOCK_NON_SHARE},
+	{/* RAM */
+	 .virt = 0x40000000UL,
+	 .phys = 0x40000000UL,
+	 .size = CONFIG_SUNXI_DRAM_MAX_SIZE,
+	 .attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
+			  PTE_BLOCK_INNER_SHARE},
 	{
-		/* SRAM, MMIO regions */
-		.virt = 0x0UL,
-		.phys = 0x0UL,
-		.size = 0x40000000UL,
-		.attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
-			 PTE_BLOCK_NON_SHARE
-	}, {
-		/* RAM */
-		.virt = 0x40000000UL,
-		.phys = 0x40000000UL,
-		.size = CONFIG_SUNXI_DRAM_MAX_SIZE,
-		.attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
-			 PTE_BLOCK_INNER_SHARE
-	}, {
 		/* List terminator */
 		0,
-	}
-};
+	}};
 struct mm_region *mem_map = sunxi_mem_map;
 
 phys_addr_t board_get_usable_ram_top(phys_size_t total_size)
@@ -83,15 +81,15 @@ static int gpio_init(void)
 	__maybe_unused uint val;
 #if CONFIG_CONS_INDEX == 1 && defined(CONFIG_UART0_PORT_F)
 #if defined(CONFIG_MACH_SUN4I) || \
-    defined(CONFIG_MACH_SUN7I) || \
-    defined(CONFIG_MACH_SUN8I_R40)
+	defined(CONFIG_MACH_SUN7I) || \
+	defined(CONFIG_MACH_SUN8I_R40)
 	/* disable GPB22,23 as uart0 tx,rx to avoid conflict */
 	sunxi_gpio_set_cfgpin(SUNXI_GPB(22), SUNXI_GPIO_INPUT);
 	sunxi_gpio_set_cfgpin(SUNXI_GPB(23), SUNXI_GPIO_INPUT);
 #endif
-#if defined(CONFIG_MACH_SUN4I) || defined(CONFIG_MACH_SUN5I) || \
-    defined(CONFIG_MACH_SUN7I) || defined(CONFIG_MACH_SUN8I_R40) || \
-    defined(CONFIG_MACH_SUN9I)
+#if defined(CONFIG_MACH_SUN4I) || defined(CONFIG_MACH_SUN5I) ||     \
+	defined(CONFIG_MACH_SUN7I) || defined(CONFIG_MACH_SUN8I_R40) || \
+	defined(CONFIG_MACH_SUN9I)
 	sunxi_gpio_set_cfgpin(SUNXI_GPF(2), SUNXI_GPF_UART0);
 	sunxi_gpio_set_cfgpin(SUNXI_GPF(4), SUNXI_GPF_UART0);
 #else
@@ -104,8 +102,8 @@ static int gpio_init(void)
 	sunxi_gpio_set_cfgpin(SUNXI_GPE(1), SUNIV_GPE_UART0);
 	sunxi_gpio_set_pull(SUNXI_GPE(1), SUNXI_GPIO_PULL_UP);
 #elif CONFIG_CONS_INDEX == 1 && (defined(CONFIG_MACH_SUN4I) || \
-				 defined(CONFIG_MACH_SUN7I) || \
-				 defined(CONFIG_MACH_SUN8I_R40))
+								 defined(CONFIG_MACH_SUN7I) || \
+								 defined(CONFIG_MACH_SUN8I_R40))
 	sunxi_gpio_set_cfgpin(SUNXI_GPB(22), SUN4I_GPB_UART0);
 	sunxi_gpio_set_cfgpin(SUNXI_GPB(23), SUN4I_GPB_UART0);
 	sunxi_gpio_set_pull(SUNXI_GPB(23), SUNXI_GPIO_PULL_UP);
@@ -161,6 +159,10 @@ static int gpio_init(void)
 	sunxi_gpio_set_cfgpin(SUNXI_GPE(2), 6);
 	sunxi_gpio_set_cfgpin(SUNXI_GPE(3), 6);
 	sunxi_gpio_set_pull(SUNXI_GPE(3), SUNXI_GPIO_PULL_UP);
+// #elif CONFIG_CONS_INDEX == 2 && defined(CONFIG_MACH_SUNIV)
+// 	sunxi_gpio_set_cfgpin(SUNXI_GPD(3), SUNIV_GPE_UART1); // Rx
+// 	sunxi_gpio_set_cfgpin(SUNXI_GPD(4), SUNIV_GPE_UART1); // Tx
+// 	sunxi_gpio_set_pull(SUNXI_GPD(4), SUNXI_GPIO_PULL_UP);
 #elif CONFIG_CONS_INDEX == 2 && defined(CONFIG_MACH_SUNIV)
 	sunxi_gpio_set_cfgpin(SUNXI_GPA(2), SUNIV_GPE_UART0);
 	sunxi_gpio_set_cfgpin(SUNXI_GPA(3), SUNIV_GPE_UART0);
@@ -186,7 +188,7 @@ static int gpio_init(void)
 	sunxi_gpio_set_cfgpin(SUNXI_GPL(3), SUN8I_GPL_R_UART);
 	sunxi_gpio_set_pull(SUNXI_GPL(3), SUNXI_GPIO_PULL_UP);
 #elif CONFIG_CONS_INDEX == 2 && defined(CONFIG_MACH_SUN8I) && \
-				!defined(CONFIG_MACH_SUN8I_R40)
+	!defined(CONFIG_MACH_SUN8I_R40)
 	sunxi_gpio_set_cfgpin(SUNXI_GPG(6), SUN8I_GPG_UART1);
 	sunxi_gpio_set_cfgpin(SUNXI_GPG(7), SUN8I_GPG_UART1);
 	sunxi_gpio_set_pull(SUNXI_GPG(7), SUNXI_GPIO_PULL_UP);
@@ -199,12 +201,14 @@ static int gpio_init(void)
 	 * detected value.
 	 */
 	if (IS_ENABLED(CONFIG_SUN50I_GEN_H6) ||
-	    IS_ENABLED(CONFIG_SUN50I_GEN_NCAT2)) {
+		IS_ENABLED(CONFIG_SUN50I_GEN_NCAT2))
+	{
 		val = readl(SUNXI_PIO_BASE + SUN50I_H6_GPIO_POW_MOD_VAL);
 		/* TODO: A523: keep only the lower two bits? */
 		writel(val, SUNXI_PIO_BASE + SUN50I_H6_GPIO_POW_MOD_SEL);
 	}
-	if (IS_ENABLED(CONFIG_SUN50I_GEN_H6)) {
+	if (IS_ENABLED(CONFIG_SUN50I_GEN_H6))
+	{
 		val = readl(SUNXI_R_PIO_BASE + SUN50I_H6_GPIO_POW_MOD_VAL);
 		writel(val, SUNXI_R_PIO_BASE + SUN50I_H6_GPIO_POW_MOD_SEL);
 	}
@@ -213,7 +217,7 @@ static int gpio_init(void)
 }
 
 static int spl_board_load_image(struct spl_image_info *spl_image,
-				struct spl_boot_device *bootdev)
+								struct spl_boot_device *bootdev)
 {
 	debug("Returning to FEL sp=%x, lr=%x\n", fel_stash.sp, fel_stash.lr);
 	return_to_fel(fel_stash.sp, fel_stash.lr);
@@ -223,7 +227,7 @@ static int spl_board_load_image(struct spl_image_info *spl_image,
 SPL_LOAD_IMAGE_METHOD("FEL", 0, BOOT_DEVICE_BOARD, spl_board_load_image);
 #endif /* CONFIG_XPL_BUILD */
 
-#define SUNXI_INVALID_BOOT_SOURCE	-1
+#define SUNXI_INVALID_BOOT_SOURCE -1
 
 static int suniv_get_boot_source(void)
 {
@@ -231,7 +235,8 @@ static int suniv_get_boot_source(void)
 	u32 brom_call = *(u32 *)(uintptr_t)(fel_stash.sp - 4);
 
 	/* translate SUNIV BootROM stack to standard SUNXI boot sources */
-	switch (brom_call) {
+	switch (brom_call)
+	{
 	case SUNIV_BOOTED_FROM_MMC0:
 		return SUNXI_BOOTED_FROM_MMC0;
 	case SUNIV_BOOTED_FROM_SPI:
@@ -270,7 +275,7 @@ static int sunxi_get_boot_source(void)
 	 * proper, just return MMC0 as a placeholder, for now.
 	 */
 	if (IS_ENABLED(CONFIG_MACH_SUNIV) &&
-	    !IS_ENABLED(CONFIG_XPL_BUILD))
+		!IS_ENABLED(CONFIG_XPL_BUILD))
 		return SUNXI_BOOTED_FROM_MMC0;
 
 	if (IS_ENABLED(CONFIG_MACH_SUNIV))
@@ -307,7 +312,8 @@ uint32_t sunxi_get_boot_device(void)
 	 * binary over USB. If it is found, it determines where SPL was
 	 * read from.
 	 */
-	switch (boot_source) {
+	switch (boot_source)
+	{
 	case SUNXI_INVALID_BOOT_SOURCE:
 		return BOOT_DEVICE_BOARD;
 	case SUNXI_BOOTED_FROM_MMC0:
@@ -323,7 +329,7 @@ uint32_t sunxi_get_boot_device(void)
 	}
 
 	panic("Unknown boot source %d\n", boot_source);
-	return -1;		/* Never reached */
+	return -1; /* Never reached */
 }
 
 #ifdef CONFIG_XPL_BUILD
@@ -351,14 +357,15 @@ uint32_t sunxi_get_spl_size(void)
  * immediately follow the SPL if that is bigger than that.
  */
 unsigned long board_spl_mmc_get_uboot_raw_sector(struct mmc *mmc,
-						 unsigned long raw_sect)
+												 unsigned long raw_sect)
 {
 	unsigned long spl_size = sunxi_get_spl_size();
 	unsigned long sector;
 
 	sector = max(raw_sect, spl_size / 512);
 
-	switch (sunxi_get_boot_source()) {
+	switch (sunxi_get_boot_source())
+	{
 	case SUNXI_BOOTED_FROM_MMC0_HIGH:
 	case SUNXI_BOOTED_FROM_MMC2_HIGH:
 		sector += (128 - 8) * 2;
@@ -407,7 +414,7 @@ static bool sunxi_valid_emmc_boot(struct mmc *mmc)
 	 * or without (0x01) high speed timings.
 	 */
 	if ((mmc->ext_csd[EXT_CSD_BOOT_BUS_WIDTH] & 0x1b) != 0x01 &&
-	    (mmc->ext_csd[EXT_CSD_BOOT_BUS_WIDTH] & 0x1b) != 0x09)
+		(mmc->ext_csd[EXT_CSD_BOOT_BUS_WIDTH] & 0x1b) != 0x09)
 		return false;
 
 	/* Partition 0 is the user data partition, bootpart must be 1 or 2. */
@@ -432,7 +439,7 @@ static bool sunxi_valid_emmc_boot(struct mmc *mmc)
 
 	/* Read the rest of the SPL now we know it's halfway sane. */
 	count = blk_dread(bd, 1, DIV_ROUND_UP(spl_size, bd->blksz) - 1,
-			  buffer + bd->blksz / 4);
+					  buffer + bd->blksz / 4);
 
 	/* Save the checksum and replace it with the "stamp value". */
 	emmc_checksum = buffer[3];
@@ -443,7 +450,7 @@ static bool sunxi_valid_emmc_boot(struct mmc *mmc)
 		chksum += buffer[count];
 
 	debug("eMMC boot part SPL checksum: stored: 0x%08x, computed: 0x%08x\n",
-	       emmc_checksum, chksum);
+		  emmc_checksum, chksum);
 
 	return emmc_checksum == chksum;
 }
@@ -456,7 +463,8 @@ u32 spl_mmc_boot_mode(struct mmc *mmc, const u32 boot_device)
 		return result;
 
 	result = MMCSD_MODE_RAW;
-	if (!IS_SD(mmc) && IS_ENABLED(CONFIG_SUPPORT_EMMC_BOOT)) {
+	if (!IS_SD(mmc) && IS_ENABLED(CONFIG_SUPPORT_EMMC_BOOT))
+	{
 		if (sunxi_valid_emmc_boot(mmc))
 			result = MMCSD_MODE_EMMCBOOT;
 		else
@@ -464,7 +472,7 @@ u32 spl_mmc_boot_mode(struct mmc *mmc, const u32 boot_device)
 	}
 
 	debug("%s(): %s part\n", __func__,
-	      result == MMCSD_MODE_RAW ? "user" : "boot");
+		  result == MMCSD_MODE_RAW ? "user" : "boot");
 
 	return result;
 }
@@ -497,13 +505,14 @@ void reset_cpu(void)
 {
 #if defined(CONFIG_SUNXI_GEN_SUN4I) || defined(CONFIG_MACH_SUN8I_R40)
 	static const struct sunxi_wdog *wdog =
-		 &((struct sunxi_timer_reg *)SUNXI_TIMER_BASE)->wdog;
+		&((struct sunxi_timer_reg *)SUNXI_TIMER_BASE)->wdog;
 
 	/* Set the watchdog for its shortest interval (.5s) and wait */
 	writel(WDT_MODE_RESET_EN | WDT_MODE_EN, &wdog->mode);
 	writel(WDT_CTRL_KEY | WDT_CTRL_RESTART, &wdog->ctl);
 
-	while (1) {
+	while (1)
+	{
 		/* sun5i sometimes gets stuck without this */
 		writel(WDT_MODE_RESET_EN | WDT_MODE_EN, &wdog->mode);
 	}
@@ -526,7 +535,9 @@ void reset_cpu(void)
 	writel(WDT_CFG_RESET, &wdog->cfg);
 	writel(WDT_MODE_EN, &wdog->mode);
 	writel(WDT_CTRL_KEY | WDT_CTRL_RESTART, &wdog->ctl);
-	while (1) { }
+	while (1)
+	{
+	}
 #endif
 }
 #endif /* CONFIG_SYSRESET */

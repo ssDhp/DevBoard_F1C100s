@@ -1,0 +1,162 @@
+
+U-Boot SPL 2025.10 (Oct 19 2025 - 22:12:01 +0530)
+DRAM: 64 MiB
+Unknown boot source from BROM: 0xffffffff
+Trying to boot from FEL
+
+
+U-Boot 2025.10 (Oct 19 2025 - 22:12:01 +0530) Allwinner Technology
+
+CPU:   Allwinner F Series (SUNIV)
+Model: Lctech Pi F1C200s
+DRAM:  64 MiB
+Core:  30 devices, 17 uclasses, devicetree: separate
+WDT:   Not starting watchdog@1c20ca0
+MMC:   mmc@1c0f000: 0
+Loading Environment from FAT... Card did not respond to voltage select! : -110
+** Bad device specification mmc 0 **
+In:    serial@1c25400
+Out:   serial@1c25400
+Err:   serial@1c25400
+Net:   No ethernet found.
+Hit any key to stop autoboot:  2 Hit any key to stop autoboot: 1Hit any key to stop autoboot: 0
+No ethernet found.
+missing environment variable: pxeuuid
+Retrieving file: pxelinux.cfg/00000000
+No ethernet found.
+Retrieving file: pxelinux.cfg/0000000
+No ethernet found.
+Retrieving file: pxelinux.cfg/000000
+No ethernet found.
+Retrieving file: pxelinux.cfg/00000
+No ethernet found.
+Retrieving file: pxelinux.cfg/0000
+No ethernet found.
+Retrieving file: pxelinux.cfg/000
+No ethernet found.
+Retrieving file: pxelinux.cfg/00
+No ethernet found.
+Retrieving file: pxelinux.cfg/0
+No ethernet found.
+Retrieving file: pxelinux.cfg/default-arm-sunxi-sunxi
+No ethernet found.
+Retrieving file: pxelinux.cfg/default-arm-sunxi
+No ethernet found.
+Retrieving file: pxelinux.cfg/default-arm
+No ethernet found.
+Retrieving file: pxelinux.cfg/default
+No ethernet found.
+Config file not found
+No ethernet found.
+=> help
+?         - alias for 'help'
+base      - print or set address offset
+bdinfo    - print Board Info structure
+bind      - Bind a device to a driver
+blkcache  - block cache diagnostics and control
+boot      - boot default, i.e., run 'bootcmd'
+bootd     - boot default, i.e., run 'bootcmd'
+bootelf   - Boot from an ELF image in memory
+bootflow  - Boot flows
+bootm     - boot application image from memory
+bootp     - boot image via network using BOOTP/TFTP protocol
+bootvx    - Boot vxWorks from an ELF image
+bootz     - boot Linux zImage image from memory
+cmp       - memory compare
+coninfo   - print console devices and information
+cp        - memory copy
+crc32     - checksum calculation
+cyclic    - Cyclic
+dhcp      - boot image via network using DHCP/TFTP protocol
+dm        - Driver model low level access
+echo      - echo args to console
+editenv   - edit environment variable
+env       - environment handling commands
+exit      - exit script
+ext2load  - load binary file from a Ext2 filesystem
+ext2ls    - list files in a directory (default /)
+ext4load  - load binary file from a Ext4 filesystem
+ext4ls    - list files in a directory (default /)
+ext4size  - determine a file's size
+false     - do nothing, unsuccessfully
+fatinfo   - print information about filesystem
+fatload   - load binary file from a dos filesystem
+fatls     - list files in a directory (default /)
+fatmkdir  - create a directory
+fatrm     - delete a file
+fatsize   - determine a file's size
+fatwrite  - write file into a dos filesystem
+fdt       - flattened device tree utility commands
+fstype    - Look up a filesystem type
+fstypes   - List supported filesystem types
+go        - start application at address 'addr'
+gpio      - query and control gpio pins
+gpt       - GUID Partition Table
+help      - print command description/usage
+iminfo    - print header information for application image
+imxtract  - extract a part of a multi-image
+itest     - return true/false on integer compare
+ln        - Create a symbolic link
+load      - load binary file from a filesystem
+loadb     - load binary file over serial line (kermit mode)
+loads     - load S-Record file over serial line
+loadx     - load binary file over serial line (xmodem mode)
+loady     - load binary file over serial line (ymodem mode)
+loop      - infinite loop on address range
+ls        - list files in a directory (default /)
+md        - memory display
+mii       - MII utility commands
+mkdir     - create a directory
+mm        - memory modify (auto-incrementing address)
+mmc       - MMC sub system
+mmcinfo   - display MMC info
+mv        - rename/move a file/directory
+mw        - memory write (fill)
+net       - NET sub-system
+nm        - memory modify (constant address)
+panic     - Panic with optional message
+part      - disk partition related commands
+ping      - send ICMP ECHO_REQUEST to network host
+pinmux    - show pin-controller muxing
+printenv  - print environment variables
+pxe       - get and boot from pxe files
+random    - fill memory with random pattern
+reset     - Perform RESET of the CPU
+rm        - delete a file
+run       - run commands in an environment variable
+save      - save file to a filesystem
+saveenv   - save environment variables to persistent storage
+setenv    - set environment variables
+setexpr   - set environment variable as the result of eval expression
+sf        - SPI flash sub-system
+showvar   - print local hushshell variables
+size      - determine a file's size
+sleep     - delay execution for some time
+source    - run script from memory
+sysboot   - command to get and boot from syslinux files
+test      - minimal test like /bin/sh
+tftpboot  - load file via network using TFTP protocol
+true      - do nothing, successfully
+unbind    - Unbind a device from a driver
+version   - print monitor, compiler and linker version
+=> ver
+U-Boot 2025.10 (Oct 19 2025 - 22:12:01 +0530) Allwinner Technology
+
+arm-linux-gnueabihf-gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+GNU ld (GNU Binutils for Ubuntu) 2.42
+=> exit
+exit not allowed from main input shell.
+=> ls
+ls - list files in a directory (default /)
+
+Usage:
+ls <interface> [<dev[:part]> [directory]]
+    - List files in directory 'directory' of partition 'part' on
+      device type 'interface' instance 'dev'.
+=> ls /
+** No device specified **
+Couldn't find partition / <NULL>
+=> ls / .
+** No device specified **
+Couldn't find partition . <NULL>
+=> reset     
